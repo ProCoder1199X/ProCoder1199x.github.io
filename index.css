@@ -1,17 +1,74 @@
+/* Reset */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom Font */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: #e0e0e0;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
+/* Container */
 .container {
     width: 80%;
     margin: auto;
     overflow: hidden;
 }
 
+/* Loader */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+
+#loader {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    border: 3px solid #0779e4;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+.loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background-color: #333;
+    z-index: 1000;
+}
+
+.section-left {
+    left: 0;
+}
+
+.section-right {
+    right: 0;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Header */
 header {
     background: #333;
     color: #fff;
@@ -51,11 +108,18 @@ header nav {
     margin-top: 10px;
 }
 
+header nav ul li a:hover {
+    color: #0779e4;
+    transition: color 0.3s ease;
+}
+
+/* About Section */
 .about {
     padding: 20px;
     background: #fff;
     margin-top: 20px;
     border-radius: 5px;
+    animation: fadeIn 2s ease-in;
 }
 
 .about h2 {
@@ -70,13 +134,21 @@ header nav {
     color: #0779e4;
 }
 
-.video-section, .instructions {
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Instructions Section */
+.instructions, .video-section {
     margin-top: 30px;
     background: #fff;
     padding: 20px;
     border-radius: 5px;
+    animation: fadeIn 2s ease-in;
 }
 
+/* Footer */
 footer {
     background: #333;
     color: #fff;
@@ -87,6 +159,16 @@ footer {
 
 footer a {
     color: #0779e4;
+}
+
+footer a:hover {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+/* Custom Cursor */
+body, a, button {
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-1/cur2.cur'), auto;
 }
 
 @media (max-width: 768px) {
