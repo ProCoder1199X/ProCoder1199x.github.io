@@ -4,91 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ProCoder1199X</title>
+    <link rel="stylesheet" href="index.css">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #e0e0e0;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-        header {
-            background: #333;
-            color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #0779e4 3px solid;
-        }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            float: right;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-        .about {
-            padding: 20px;
-            background: #fff;
-            margin-top: 20px;
-            border-radius: 5px;
-        }
-        .about h2 {
-            color: #0779e4;
-        }
-        .about p {
-            font-size: 18px;
-        }
-        .highlight {
-            color: #0779e4;
-        }
-        .video-section {
-            margin-top: 30px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .instructions {
-            margin-top: 30px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        }
-        footer a {
-            color: #0779e4;
+        @font-face {
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Poppins Regular'), local('Poppins-Regular'),
+                url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
         }
     </style>
 </head>
 <body>
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+    </div>
+
     <header>
         <div class="container">
             <div id="branding">
@@ -107,7 +40,8 @@
     <div class="container">
         <section id="about" class="about">
             <h2>About Me</h2>
-           <p>Hello, I'm ProCoder. I like programming. I know computer programming languages such as HTML, CSS, Scratch, JSON and some others. I would like to collabororate on projects. I'm experinsed and expert in coding, gaming, *Ethical* Hacking (Whitehat hacking) , electricals/electronics, video editing (Filmora/Adobe Premire Pro) And Desgining (Canva, Adobe PS).</p>
+            <p>Hello, I'm <span class="highlight">ProCoder</span>. I like programming. I know computer programming languages such as HTML, CSS, Scratch, JSON, and some others. I would like to collaborate on projects.</p>
+            <p>I'm experienced and expert in coding, gaming, <em>Ethical</em> Hacking (Whitehat hacking), electricals/electronics, video editing (Filmora/Adobe Premiere Pro), and designing (Canva, Adobe Photoshop).</p>
         </section>
 
         <section id="instructions" class="instructions">
@@ -133,5 +67,12 @@
     <footer>
         <p>Webpage made by <a href="https://github.com/ProCoder1199X" target="_blank">ProCoder1199X</a></p>
     </footer>
+
+    <script>
+        window.addEventListener("load", function() {
+            const loaderWrapper = document.getElementById('loader-wrapper');
+            loaderWrapper.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
