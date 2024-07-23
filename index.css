@@ -28,6 +28,7 @@ header {
     padding-top: 30px;
     min-height: 70px;
     border-bottom: #0779e4 3px solid;
+    animation: fadeIn 1s ease-out;
 }
 
 header a {
@@ -86,53 +87,4 @@ header nav ul li a:hover {
     color: #0779e4;
 }
 
-/* Instructions Section */
-.instructions, .video-section {
-    margin-top: 30px;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-footer a {
-    color: #0779e4;
-}
-
-footer a:hover {
-    color: #fff;
-    transition: color 0.3s ease;
-}
-
-/* Custom Cursor */
-body, a, button {
-    cursor: url('https://cur.cursors-4u.net/cursors/cur-1/cur2.cur'), auto;
-}
-
-@media (max-width: 768px) {
-    header #branding, header nav ul {
-        text-align: center;
-        float: none;
-    }
-    header nav ul {
-        margin: 0;
-        padding: 0;
-    }
-    header nav ul li {
-        float: none;
-        display: block;
-        padding: 10px;
-    }
-    .container {
-        width: 100%;
-        padding: 0 10px;
-    }
-}
+/*
