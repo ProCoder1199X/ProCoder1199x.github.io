@@ -46,7 +46,7 @@ header ul {
 header li {
     float: right;
     display: inline;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
 }
 
 header #branding {
@@ -87,4 +87,39 @@ header nav ul li a:hover {
     color: #0779e4;
 }
 
-/*
+/* Instructions Section */
+.instructions, .video-section {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #0779e4;
+}
+
+footer a:hover {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+/* Custom Cursor */
+body, a, button {
+    cursor: url('https://cur.cursors-4u.net/cursors/cur-1/cur2.cur'), auto;
+}
+
+/* Loader Animation Keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
