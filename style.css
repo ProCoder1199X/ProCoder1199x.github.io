@@ -1,100 +1,64 @@
-/* Reset */
-body, h1, h2, p, ul, li, a, button {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styles */
-body {
-    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Dark Mode */
-body.dark-mode {
-    background-color: #333;
-    color: #f4f4f4;
-}
-
-/* Header */
 header {
-    background: #444;
-    color: white;
-    padding: 10px;
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
 
-header nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+header h1 span.highlight {
+    color: #f4d03f;
 }
 
-header nav ul li {
-    margin: 0 10px;
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
 }
 
-header nav ul li a,
-header nav ul li button {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    background: none;
+#about, #game, #contact {
+    margin: 20px 0;
+}
+
+.card {
+    background: #fff;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#gameCanvas {
+    display: block;
+    margin: 20px auto;
+    background: #000;
+    border: 2px solid #333;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: #333;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
-/* Card */
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
-}
-
-body.dark-mode .card {
+button:hover {
     background: #444;
 }
 
-/* Sections */
-section {
-    padding: 20px;
-    margin: 20px 0;
-}
-
-/* Loader */
-#loader-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#windows-loader {
-    border: 3px solid #0779e4;
-    border-radius: 50%;
-    border-top-color: transparent;
-    width: 50px;
-    height: 50px;
-    animation: spin 1s linear infinite;
-}
-
-/* Animations! */
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+    margin-top: 20px;
 }
