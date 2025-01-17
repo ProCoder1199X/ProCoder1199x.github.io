@@ -89,7 +89,7 @@ section {
     animation: spin 1s linear infinite;
 }
 
-/* Animations */
+/* Animations! */
 @keyframes spin {
     0% {
         transform: rotate(0deg);
