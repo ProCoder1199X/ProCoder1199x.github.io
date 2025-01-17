@@ -14,109 +14,221 @@
                 url(https://fonts.gstatic.com/s/poppins/v15/pxiByp8kv8JHgFVrLDz8Z1xlFQ.woff2) format('woff2');
         }
 
-        /* Loader animation */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Windows-like spinning ring loader */
-        #windows-loader {
-            display: block;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 50px;
-            height: 50px;
-            margin: -25px 0 0 -25px;
-            border: 3px solid #0779e4;
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: spin 1s linear infinite;
-        }
-
-        /* Loader wrapper */
-        #loader-wrapper {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: #fff;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
+        /* General styles */
         body {
-            display: none; /* Hide content initially */
             font-family: 'Poppins', sans-serif;
             background-color: #e0e0e0;
             color: #333;
             margin: 0;
             padding: 0;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Custom Cursor */
-        body, a, button {
-            cursor: url('https://cur.cursors-4u.net/cursors/cur-1/cur2.cur'), auto;
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0779e4;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        header.dark-mode {
+            background: #222;
+        }
+
+        nav ul li a.dark-mode {
+            color: #e0e0e0;
+        }
+
+        /* Section styles */
+        section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        .highlight {
+            color: #0779e4;
+        }
+
+        /* Cards */
+        .card {
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        /* Toggle button */
+        .toggle-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .toggle-button {
+            padding: 10px 20px;
+            background-color: #0779e4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #055aa6;
+        }
+
+        /* Contact section */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #0779e4;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Game Styles */
+        .game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .game button {
+            padding: 10px 20px;
+            background-color: #0779e4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .game button:hover {
+            background-color: #055aa6;
         }
     </style>
 </head>
 <body>
-    <div id="loader-wrapper">
-        <div id="windows-loader"></div>
-    </div>
-
     <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">ProCoder1199X</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#instructions">Hosting Guide</a></li>
-                    <li><a href="#video">Video Tutorial</a></li>
-                    <li><a href="#about">About Me</a></li>
-                </ul>
-            </nav>
-        </div>
+        <h1>Welcome to <span class="highlight">ProCoder1199X</span></h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#game">Play Game</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <div class="container">
-        <section id="about" class="about">
+        <!-- About Section -->
+        <section id="about">
             <h2>About Me</h2>
-            <img src="file-D1Ceu8lmDWW9ERbNqPRa8Kcf" alt="About Me Image" style="max-width: 100%; height: auto;">
-            <p>Hello, I'm <span class="highlight">DheerajKumar (ProCoder1199x)</span>. I like programming. I know computer programming languages such as HTML, CSS, Scratch, JSON, and some others. I would like to collaborate on projects.</p>
-            <p>I'm experienced and expert in coding, gaming, <em>Ethical</em> Hacking (Whitehat hacking), electricals/electronics, video editing (Filmora/Adobe Premiere Pro), and designing (Canva, Adobe Photoshop).</p>
+            <div class="card">
+                <p>Hello, I'm <span class="highlight">DheerajKumar.N</span>, a passionate programmer and innovator. I have extensive experience in programming languages such as HTML, CSS, and JSON. I'm also skilled in ethical hacking, electronics, and video editing. Let's collaborate and create amazing projects!</p>
+            </div>
         </section>
 
-        <section id="instructions" class="instructions">
-            <h2>How to Create and Host an HTML Page Using GitHub for Free</h2>
-            <ol>
-                <li>Create a GitHub account if you don’t have one.</li>
-                <li>Create a new repository and name it <strong>your-username.github.io</strong>.</li>
-                <li>Clone the repository to your local machine.</li>
-                <li>Create an HTML file (e.g., <strong>index.html</strong>) in the repository.</li>
-                <li>Add your HTML content to the <strong>index.html</strong> file.</li>
-                <li>Commit and push your changes to the repository.</li>
-                <li>Visit <strong>https://your-username.github.io</strong> to see your webpage live.</li>
-            </ol>
+        <!-- Game Section -->
+        <section id="game">
+            <h2>Play a Simple Game</h2>
+            <div class="game">
+                <p>Guess a number between 1 and 10:</p>
+                <input type="number" id="userGuess" placeholder="Enter your guess">
+                <button onclick="checkGuess()">Submit</button>
+                <p id="gameMessage"></p>
+            </div>
         </section>
 
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:dheeraj1018279@gmail.com">dheeraj1018279@gmail.com</a></p>
+        </section>
+
+        <!-- Dark Mode Toggle -->
+        <div class="toggle-container">
+            <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+        </div>
     </div>
 
     <footer>
-        <p>Webpage made by DheerajKumar.N, Github profile: <a href="https://github.com/ProCoder1199X" target="_blank">ProCoder1199X</a></p>
+        <p>Webpage made by <span class="highlight">DheerajKumar.N</span>. Visit my GitHub profile: <a href="https://github.com/ProCoder1199X" target="_blank">ProCoder1199X</a></p>
     </footer>
 
     <script>
-        window.addEventListener("load", function() {
-            const loaderWrapper = document.getElementById('loader-wrapper');
-            loaderWrapper.style.display = 'none';
-            document.body.style.display = 'block'; // Show content after loading
-        });
+        let darkMode = false;
+
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            document.body.classList.toggle('dark-mode', darkMode);
+            document.querySelector('header').classList.toggle('dark-mode', darkMode);
+        }
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('userGuess').value);
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+            const message = userGuess === randomNumber
+                ? `Congratulations! You guessed it right. The number was ${randomNumber}.`
+                : `Try again! The number was ${randomNumber}.`;
+            document.getElementById('gameMessage').textContent = message;
+        }
     </script>
 </body>
 </html>
