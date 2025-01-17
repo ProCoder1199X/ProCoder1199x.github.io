@@ -3,51 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DheerajKumar.N Portfolio</title>
+    <title>ProCoder1199X</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+    <div id="loader-wrapper">
+        <div id="windows-loader"></div>
+    </div>
+
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><button id="themeToggle">Dark Mode</button></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">ProCoder1199X</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#instructions">Hosting Guide</a></li>
+                    <li><a href="#game">Mini Game</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="toggle-theme">Toggle Dark/Light Mode</button></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="about">
-        <h1>About Me</h1>
-        <p>Hello! I'm <strong>DheerajKumar.N</strong>, a passionate programmer, electronics expert, and physicist. I specialize in creating innovative projects like <strong>EasiScript</strong>, a unique programming language designed for AI and ML. I also love exploring quantum physics, astronomy, and advanced technologies.</p>
-    </section>
+    <div class="container">
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <h3>DheerajKumar.N</h3>
+                <p>Hello! I am DheerajKumar.N, a passionate programmer, physics enthusiast, and tech innovator. I specialize in:
+                <ul>
+                    <li>Programming: EasiScript, Python, HTML, and more.</li>
+                    <li>Electronics: DIY circuits and motor designs.</li>
+                    <li>Game Development and AI Research.</li>
+                </ul>
+                Always eager to collaborate and innovate!</p>
+            </div>
+        </section>
 
-    <section id="projects">
-        <h2>My Projects</h2>
-        <div class="project-card">
-            <h3>EasiScript Programming Language</h3>
-            <p>A programming language aimed at simplifying AI, ML, and LLM development.</p>
-        </div>
-        <div class="project-card">
-            <h3>Electric Motor with AI Precision</h3>
-            <p>An innovative motor design with high precision using AI control systems.</p>
-        </div>
-        <div class="project-card">
-            <h3>Game: Conclusion of Mankind</h3>
-            <p>An open-world game about the rise of AI and its impact on humanity.</p>
-        </div>
-    </section>
+        <section id="instructions" class="instructions">
+            <h2>How to Host Your HTML Page</h2>
+            <ol>
+                <li>Create a GitHub account if you don’t have one.</li>
+                <li>Create a new repository named <strong>your-username.github.io</strong>.</li>
+                <li>Clone the repository to your local machine.</li>
+                <li>Create an HTML file (e.g., <strong>index.html</strong>) in the repository.</li>
+                <li>Add your HTML content to the file.</li>
+                <li>Push your changes to the repository.</li>
+                <li>Visit <strong>https://your-username.github.io</strong> to see it live.</li>
+            </ol>
+        </section>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:dheeraj1018279@gmail.com">dheeraj1018279@gmail.com</a></p>
-    </section>
+        <section id="game" class="game">
+            <h2>Mini Game</h2>
+            <button id="start-game">Start Game</button>
+            <p id="game-result"></p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:dheeraj1018279@gmail.com">dheeraj1018279@gmail.com</a></p>
+        </section>
+    </div>
 
     <footer>
-        <p>&copy; 2025 DheerajKumar.N. All Rights Reserved.</p>
+        <p>Website by DheerajKumar.N | GitHub: <a href="https://github.com/ProCoder1199X" target="_blank">ProCoder1199X</a></p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
