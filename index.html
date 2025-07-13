@@ -1,62 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProCoder1199X</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dheeraj Kumar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    /* === RESET & BASE === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0f0f0f;
+      color: #fff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    a { color: #00bfff; text-decoration: none; }
+    a:hover { color: #ff5e5e; }
+
+    h1, h2, h3 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    section {
+      padding: 4rem 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 0 auto 1.5rem auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* === LOADER === */
+    #loader {
+      position: fixed;
+      background: #000;
+      color: #00ffcc;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      user-select: none;
+    }
+
+    /* === HERO === */
+    #hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      z-index: 2;
+    }
+
+    #typed {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #00bfff;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-shadow: 0 0 8px #00bfffaa;
+    }
+
+    /* === FLOATING SHAPES === */
+    .floating-shape {
+      position: absolute;
+      background: rgba(0,255,255,0.1);
+      border: 1px solid rgba(0,255,255,0.2);
+      border-radius: 50%;
+      animation: float 12s ease-in-out infinite;
+      z-index: 0;
+      filter: drop-shadow(0 0 2px #00bfff88);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-40px); }
+      100% { transform: translateY(0); }
+    }
+
+    .shape1 { width: 120px; height: 120px; top: 10%; left: 10%; }
+    .shape2 { width: 80px; height: 80px; top: 60%; left: 80%; animation-delay: 3s; }
+    .shape3 { width: 60px; height: 60px; top: 40%; left: 50%; animation-delay: 5s; }
+
+    /* === STARTUP CARDS === */
+    .startup-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      margin: 2rem auto;
+      max-width: 600px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #00bfff22;
+      cursor: default;
+    }
+
+    .startup-card:hover {
+      transform: translateX(10px);
+      box-shadow: 0 0 25px #00bfffaa;
+    }
+
+    /* === CERTIFICATES === */
+    .certificates {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    /* === CONTACT === */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ff5e5e;
+      text-shadow: 0 0 8px #ff5e5e;
+    }
+
+    /* === PARTICLES === */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    /* === FOOTER === */
+    footer {
+      padding: 2rem;
+      text-align: center;
+      opacity: 0.6;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <div id="loader-wrapper">
-        <div id="windows-loader"></div>
+
+  <!-- Loader -->
+  <div id="loader">⚙️ Warming up electrons... Please wait 🤖</div>
+
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Floating Shapes -->
+  <div class="floating-shape shape1"></div>
+  <div class="floating-shape shape2"></div>
+  <div class="floating-shape shape3"></div>
+
+  <!-- HERO SECTION -->
+  <section id="hero">
+    <h1>Dheeraj Kumar</h1>
+    <div id="typed"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I'm Dheeraj Kumar, a tech enthusiast from Chennai, India. I'm the Founder of 
+      <a href="https://x.com/FuocoAutomobile" target="_blank">Fuoco Automobiles</a> and 
+      <a href="https://x.com/PulsewaveSoft" target="_blank">Pulsewave Software</a>.
+
+      <br/><br/>
+      I have over 5 years of experience in C++, HTML, and Python. I also have 5 years of hands-on experience 
+      in video editing and working on electronics/IoT-related projects.
+    </p>
+  </section>
+
+  <!-- COMPANIES -->
+  <section id="companies">
+    <h2>My Companies</h2>
+
+    <div class="startup-card" data-aos="fade-right">
+      <h3>Fuoco Automobiles</h3>
+      <p>Building the future of Ebikes.</p>
+      <p>
+        <a href="https://x.com/FuocoAutomobile" target="_blank">Twitter (X)</a> | 
+        <a href="https://instagram.com/FuocoAutomobiles" target="_blank">Instagram</a>
+      </p>
     </div>
 
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1><span class="highlight">ProCoder1199X</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#game">Mini Game</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><button id="toggle-theme">Toggle Dark/Light Mode</button></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="container">
-        <section id="about" class="about">
-            <h2>About Me</h2>
-            <div class="card">
-                <h3>DheerajKumar.N</h3>
-                <p>Hello! I am DheerajKumar.N, a passionate programmer, physics enthusiast, and tech innovator. I specialize in:
-                <ul>
-                    <li>Programming: EasiScript, Python, HTML, and more.</li>
-                    <li>Electronics: DIY circuits and motor designs.</li>
-                    <li>Game Development and AI Research.</li>
-                </ul>
-                Always eager to collaborate and innovate!</p>
-            </div>
-        </section>
-
-        <section id="game" class="game">
-            <h2>Mini Game</h2>
-            <canvas id="gameCanvas" width="400" height="600"></canvas>
-            <button id="start-game">Start Game</button>
-        </section>
-
-        <section id="contact" class="contact">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:dheeraj1018279@gmail.com">dheeraj1018279@gmail.com</a></p>
-        </section>
+    <div class="startup-card" data-aos="fade-left">
+      <h3>Pulsewave Software</h3>
+      <p>Software Solutions for problems that don't exist anyway.</p>
+      <p>
+        <a href="https://x.com/PulsewaveSoft" target="_blank">Twitter (X)</a> | 
+        <a href="https://instagram.com/PulsewaveSoft" target="_blank">Instagram</a>
+      </p>
     </div>
+  </section>
 
-    <footer>
-        <p>Website by DheerajKumar.N | GitHub: <a href="https://github.com/ProCoder1199X" target="_blank">ProCoder1199X</a></p>
-    </footer>
+  <!-- CERTIFICATES -->
+  <section id="certificates" data-aos="zoom-in">
+    <h2>Certificates</h2>
+    <div class="certificates">
+      <a href="https://www.testdome.com/certificates/3041e5b5d49847639b879625dc055ae9" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
+        <span class="testdome-certificate-name">DheerajKumar</span>
+        <span class="testdome-certificate-test-name">Executive Officer</span>
+        <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
+      </a>
+      <a href="https://www.testdome.com/certificates/ba54a4c6ca7b4d3f8226b02dfc77be69" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
+        <span class="testdome-certificate-name">DheerajKumar</span>
+        <span class="testdome-certificate-test-name">Leadership</span>
+        <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Feel free to connect with me on social platforms:</p>
+    <div class="social-icons">
+      <a href="mailto:dheeraj1018279@gmail.com">Email</a>
+      <a href="https://github.com/ProCoder1199x" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://x.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">X</a>
+      <a href="https://instagram.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://linkedin.com/in/DheerajKumar76x" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://youtube.com/@DheerajKumar76x" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://quora.com/profile/ProCoder1199x" target="_blank" rel="noopener noreferrer">Quora</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; 2025 Dheeraj Kumar. All rights reserved.
+  </footer>
+
+  <!-- LIBRARIES -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Typing effect
+    new Typed('#typed', {
+      strings: [
+        "Hi, I'm Dheeraj Kumar.",
+        "Success Isn't a goal. It's my default setting."
+      ],
+      typeSpeed: 50,
+      backSpeed: 30,
+      loop: true
+    });
+
+    // AOS animation
+    AOS.init();
+
+    // Particles.js config
+    particlesJS("particles-js", {
+      particles: {
+        number: { value: 70, density: { enable: true, value_area: 900 } },
+        color: { value: "#00bfff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.4, anim: { enable: true, speed: 0.6, opacity_min: 0.1, sync: false } },
+        size: { value: 3, random: true, anim: { enable: true, speed: 3, size_min: 0.5, sync: false } },
+        line_linked: { enable: true, distance: 140, color: "#00bfff", opacity: 0.5, width: 1 },
+        move: { enable: true, speed: 2.5, direction: "none", random: false, straight: false, bounce: false, attract: { enable: false } }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: { enable: true, mode: "grab" },
+          onclick: { enable: true, mode: "push" },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 180, line_linked: { opacity: 0.7 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
+    });
+
+    // Loader - stays visible for 4 seconds
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('loader').style.display = 'none';
+      }, 4000);
+    };
+
+    // TestDome cert CSS
+    const link = document.createElement("link");
+    link.href = "https://www.testdome.com/content/certificates/embed.css";
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    document.head.appendChild(link);
+  </script>
 </body>
 </html>
