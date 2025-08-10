@@ -1,396 +1,467 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dheeraj Kumar</title>
+  <meta name="description" content="Portfolio of Dheeraj Kumar — Tech enthusiast, Founder of Fuoco Automobiles & Pulsewave Software" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
   <style>
-    /* === RESET & BASE === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: #0f0f0f;
-      color: #fff;
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+    :root{
+      --bg: #0f0f0f;
+      --panel: rgba(255,255,255,0.04);
+      --accent: #00bfff;
+      --accent-2: #00ffcc;
+      --accent-hot: #ff5e5e;
+      --glass-border: rgba(255,255,255,0.08);
+      --muted: #9aa3ad;
+      --maxw: 1200px;
+      --radius: 12px;
     }
 
-    a { color: #00bfff; text-decoration: none; }
-    a:hover { color: #ff5e5e; }
-
-    h1, h2, h3 {
-      text-align: center;
-      margin-bottom: 1rem;
+    /* Reset / Base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background:var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.55;
+      overflow-x:hidden;
     }
+    a{color:var(--accent)}
+    a:hover{color:var(--accent-hot)}
+    img{max-width:100%;display:block}
 
-    section {
-      padding: 4rem 1rem;
-      position: relative;
-      z-index: 1;
+    /* Page container */
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    /* Nav */
+    .nav {
+      position:sticky; top:12px; z-index:9999;
+      display:flex; justify-content:center;
+      pointer-events:auto;
+      margin:0 auto;
     }
-
-    p {
-      max-width: 800px;
-      margin: 0 auto 1.5rem auto;
-      text-align: center;
-      line-height: 1.7;
+    .nav-inner{
+      display:flex; gap:12px; background:rgba(6,6,8,0.45);
+      padding:8px 12px; border-radius:999px; align-items:center;
+      backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.03);
     }
+    .nav-inner a{color:#e8eef6;text-decoration:none;padding:6px 10px;font-weight:600;font-size:.95rem;border-radius:8px}
+    .nav-inner a:hover{background:rgba(255,255,255,0.02); color:var(--accent)}
 
-    /* === LOADER === */
-    #loader {
-      position: fixed;
-      background: #000;
-      color: #00ffcc;
-      top: 0; left: 0; right: 0; bottom: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      user-select: none;
+    /* Loader */
+    #loader{
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+      background:#000; color:var(--accent-2); z-index:100000; font-weight:700; letter-spacing:1.2px;
+      transition:opacity .45s ease, visibility .45s ease; user-select:none;
     }
-
-    /* === HERO === */
-    #hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: transparent;
-      z-index: 2;
+    #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+    #loader::after{
+      content:""; display:inline-block; width:20px; height:6px; margin-left:10px; border-radius:6px;
+      background:linear-gradient(90deg,var(--accent),var(--accent-hot)); animation:loaderPop 1s infinite;
     }
+    @keyframes loaderPop{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 
-    #typed {
-      font-size: 1.5rem;
-      margin-top: 1rem;
-      color: #00bfff;
-      font-weight: 700;
-      letter-spacing: 1.1px;
-      text-shadow: 0 0 8px #00bfffaa;
+    /* HERO */
+    #hero{position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:48px 0 80px}
+    #hero .hero-inner{position:relative;z-index:30; width:100%; max-width:980px; padding-top:20px}
+    #hero h1{font-size:clamp(2rem,6vw,3.6rem); font-weight:800; margin-bottom:.25rem}
+    #typed{font-size:clamp(1rem,2.2vw,1.4rem); color:var(--accent); font-weight:700; letter-spacing:1.1px; text-shadow:0 0 12px rgba(0,191,255,0.12); margin-top:.6rem}
+
+    /* Particles container constrained to hero */
+    #particles-js{position:absolute; inset:0; width:100%; height:100%; z-index:10; pointer-events:none; opacity:0.95}
+
+    /* Floating decorative shapes */
+    .floating-shape{position:absolute; background:rgba(0,255,255,0.06); border:1px solid rgba(0,255,255,0.14); border-radius:50%; animation:float 12s ease-in-out infinite; z-index:20; filter:drop-shadow(0 0 6px rgba(0,191,255,0.06)); mix-blend-mode:screen}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
+    .shape1{width:130px;height:130px;top:8%;left:6%}
+    .shape2{width:90px;height:90px;top:62%;left:78%;animation-delay:3s}
+    .shape3{width:66px;height:66px;top:38%;left:50%;animation-delay:5s}
+
+    /* Sections */
+    section{padding:56px 0; position:relative}
+    h2{font-size:1.6rem;color:var(--accent); margin-bottom:18px}
+    p.lead{max-width:820px;margin:0 auto 1.2rem auto;color:#e6e9ec;text-align:center}
+
+    /* About two-column layout */
+    .about-grid{display:grid; gap:28px; align-items:center}
+    .about-text{min-width:0}
+    .about-illustration{display:flex;align-items:center;justify-content:center}
+    .hero-illustration{width:320px; max-width:45vw; opacity:.98}
+
+    /* Cards / projects / companies */
+    .startup-card{background:var(--panel); border-radius:var(--radius); border:1px solid var(--glass-border); backdrop-filter: blur(10px); padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition:transform .26s ease, box-shadow .26s ease}
+    .startup-card h3{margin-bottom:8px}
+    .startup-card p{margin:0 0 8px 0; color:#ddd}
+
+    .companies-grid, .projects-grid{display:grid; gap:20px}
+    .projects-grid .startup-card{padding:20px}
+    .companies-grid{grid-template-columns:1fr; margin-top:6px}
+    .projects-grid{grid-template-columns:1fr}
+
+    /* Certificates row */
+    .certificates{display:flex; flex-direction:column; gap:12px; align-items:center}
+    .certificates a{display:inline-block; padding:12px 14px; background:rgba(255,255,255,0.02); border-radius:10px; color:#efe; text-decoration:none}
+
+    /* Other projects list */
+    ul.other-list{list-style:none; max-width:820px; margin:0 auto; padding-left:0}
+    ul.other-list li{margin-bottom:14px; padding-left:12px; border-left:3px solid var(--accent); padding-right:10px; color:#eaeaea}
+
+    /* Contact */
+    .social-icons{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:12px}
+    .social-icons a{font-weight:600; padding:8px 12px; border-radius:9px; background:rgba(255,255,255,0.02); color:#eaeaea; text-decoration:none}
+
+    /* Footer */
+    footer{padding:28px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); margin-top:26px}
+
+    /* Scroll to top button */
+    #scrollTop{position:fixed;right:18px;bottom:20px;background:var(--accent);color:#011;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;display:none;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,0.4)}
+    #scrollTop:hover{transform:translateY(-4px);}
+
+    /* Responsive breakpoints */
+    @media(min-width:900px){
+      .about-grid{grid-template-columns: 1fr 420px}
+      .companies-grid{grid-template-columns: 1fr 1fr}
+      .projects-grid{grid-template-columns: repeat(3,1fr)}
+      .startup-card{min-height:120px}
+      section{padding:80px 0}
+      .floating-shape{opacity:0.95}
     }
-
-    /* === FLOATING SHAPES === */
-    .floating-shape {
-      position: absolute;
-      background: rgba(0,255,255,0.1);
-      border: 1px solid rgba(0,255,255,0.2);
-      border-radius: 50%;
-      animation: float 12s ease-in-out infinite;
-      z-index: 0;
-      filter: drop-shadow(0 0 2px #00bfff88);
+    @media(min-width:1200px){
+      .about-grid{grid-template-columns: 1fr 480px}
+      .projects-grid{grid-template-columns: repeat(3,1fr); gap:26px}
     }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-40px); }
-      100% { transform: translateY(0); }
+    @media(max-width:899px){
+      .projects-grid{grid-template-columns:1fr}
+      .companies-grid{grid-template-columns:1fr}
+      .about-grid{grid-template-columns:1fr}
+      .hero-illustration{display:none}
+      .shape1{display:none}
     }
-
-    .shape1 { width: 120px; height: 120px; top: 10%; left: 10%; }
-    .shape2 { width: 80px; height: 80px; top: 60%; left: 80%; animation-delay: 3s; }
-    .shape3 { width: 60px; height: 60px; top: 40%; left: 50%; animation-delay: 5s; }
-
-    /* === STARTUP CARDS === */
-    .startup-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      backdrop-filter: blur(10px);
-      padding: 2rem;
-      margin: 2rem auto;
-      max-width: 600px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 0 10px #00bfff22;
-      cursor: default;
+    @media(max-width:480px){
+      #typed{font-size:1rem}
+      .shape2,.shape3{display:none}
+      #particles-js{height:60vh;opacity:.75}
+      .nav-inner a{font-size:.88rem;padding:6px 8px}
     }
-
-    .startup-card:hover {
-      transform: translateX(10px);
-      box-shadow: 0 0 25px #00bfffaa;
-    }
-
-    /* === CERTIFICATES === */
-    .certificates {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    /* === CONTACT === */
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .social-icons a {
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #ff5e5e;
-      text-shadow: 0 0 8px #ff5e5e;
-    }
-
-    /* === PARTICLES === */
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-    }
-
-    /* === FOOTER === */
-    footer {
-      padding: 2rem;
-      text-align: center;
-      opacity: 0.6;
-      font-size: 0.9rem;
-    }
-
-
-@keyframes fadeBlink {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; }
-}
-
-
-
-    
   </style>
 </head>
 <body>
 
-  <!-- Loader -->
+  <!-- Loader (keep original 3000ms behavior) -->
   <div id="loader"> loading, please wait. </div>
 
-  <!-- Particles Background -->
-  <div id="particles-js"></div>
-
-  <!-- Floating Shapes -->
-  <div class="floating-shape shape1"></div>
-  <div class="floating-shape shape2"></div>
-  <div class="floating-shape shape3"></div>
-
-  <!-- HERO SECTION -->
-  <section id="hero">
-    <h1>Dheeraj Kumar</h1>
-    <div id="typed"></div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      I'm Dheeraj Kumar, a tech enthusiast from Chennai, India. I'm the Founder of 
-      <a href="https://x.com/FuocoAutomobile" target="_blank">Fuoco Automobiles</a> and 
-      <a href="https://x.com/PulsewaveSoft" target="_blank">Pulsewave Software</a>.
-
-      <br/><br/>
-      I have over 5 years of experience in programming.  I also have 5 years of hands-on experience 
-      in video editing and working on electronics/IoT-related projects.
-    </p>
-  </section>
-
-  <!-- COMPANIES -->
-  <section id="companies">
-    <h2>Companies</h2>
-
-    <div class="startup-card" data-aos="fade-right">
-      <h3>Fuoco Automobiles</h3>
-      <p>Building the future of Ebikes.</p>
-      <p>
-        <a href="https://x.com/FuocoAutomobile" target="_blank">Twitter (X)</a> | 
-        <a href="https://instagram.com/FuocoAutomobiles" target="_blank">Instagram</a>
-      </p>
-    </div>
-
-    <div class="startup-card" data-aos="fade-left">
-      <h3>Pulsewave Software</h3>
-      <p>Software Solutions for problems that don't exist anyway.</p>
-      <p>
-        <a href="https://x.com/PulsewaveSoft" target="_blank">Twitter (X)</a> | 
-        <a href="https://instagram.com/PulsewaveSoft" target="_blank">Instagram</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- CERTIFICATES -->
-  <section id="certificates" data-aos="zoom-in">
-    <h2>Certificates</h2>
-    <div class="certificates">
-      <a href="https://www.testdome.com/certificates/3041e5b5d49847639b879625dc055ae9" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
-        <span class="testdome-certificate-name">DheerajKumar</span>
-        <span class="testdome-certificate-test-name">Executive Officer</span>
-        <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
-      </a>
-      <a href="https://www.testdome.com/certificates/ba54a4c6ca7b4d3f8226b02dfc77be69" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
-        <span class="testdome-certificate-name">DheerajKumar</span>
-        <span class="testdome-certificate-test-name">Leadership</span>
-        <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
-      </a>
-    </div>
-  </section>
-<!-- PROJECTS -->
-<section id="projects" data-aos="fade-up">
-  <h2>Projects</h2>
-
-  <div class="startup-card" data-aos="fade-right">
-    <h3>SciCalX</h3>
-    <p>An unique scientific application software that's useful for people working in science and related fields.</p>
-    <p><a href="https://github.com/ProCoder1199X/SciCalX" target="_blank">GitHub Repo</a></p>
+  <!-- Sticky nav -->
+  <div style="position:relative;z-index:9998;">
+    <nav class="nav container" aria-hidden="false">
+      <div class="nav-inner">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#companies">Companies</a>
+        <a href="#projects">Projects</a>
+        <a href="#other-projects">Other</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </div>
 
-  <div class="startup-card" data-aos="fade-left">
-    <h3>Congming-AI</h3>
-    <p>An experimental, modular, symbolic multi-agent artificial intelligence framework. Designed for simulating cognitive processes and self-improvement.</p>
-    <p><a href="https://github.com/ProCoder1199x/Congming-AI" target="_blank">GitHub Repo</a></p>
-  </div>
+  <!-- HERO -->
+  <main>
+    <section id="hero" aria-label="Hero">
+      <!-- Particles (constrained to hero) -->
+      <div id="particles-js" aria-hidden="true"></div>
 
-  <div class="startup-card" data-aos="fade-right">
-    <h3>ChaoticEntropy</h3>
-    <p>A computer entropy generator that blends human unpredictability, math chaos, and real-world randomness to generate near quantum-level entropy — without quantum hardware.</p>
-    <p><a href="https://github.com/ProCoder1199X/ChaoticEntropy" target="_blank">GitHub Repo</a></p>
-  </div>
+      <!-- Floating shapes -->
+      <div class="floating-shape shape1" aria-hidden="true"></div>
+      <div class="floating-shape shape2" aria-hidden="true"></div>
+      <div class="floating-shape shape3" aria-hidden="true"></div>
 
-  <!-- More Coming -->
-  <p style="margin-top: 3rem; font-style: italic; font-size: 1.1rem; color: #888; animation: fadeBlink 2s ease-in-out infinite;">
-    Just a few. There are more.
-  </p>
-</section>
+      <div class="hero-inner container" data-aos="fade-up">
+        <h1>Dheeraj Kumar</h1>
+        <div id="typed"></div>
+      </div>
+    </section>
 
+    <!-- ABOUT -->
+    <section id="about" data-aos="fade-up">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p class="lead">
+            I'm Dheeraj Kumar, a tech enthusiast from Chennai, India. I'm the Founder of 
+            <a href="https://x.com/FuocoAutomobile" target="_blank">Fuoco Automobiles</a> and 
+            <a href="https://x.com/PulsewaveSoft" target="_blank">Pulsewave Software</a>.
 
-<!-- OTHER PROJECTS -->
-<section id="other-projects" data-aos="fade-up">
-  <h2>Other Projects</h2>
-  <ul style="max-width: 800px; margin: 0 auto; list-style: none; padding-left: 0;">
-    <li data-aos="fade-right" style="margin-bottom: 1.5rem; border-left: 3px solid #00bfff; padding-left: 1rem;">
-      ⚡ Custom-built eBike — 24V, 250W motor, 243Wh battery. Built entirely at age 14.
-    </li>
-    <li data-aos="fade-left" style="margin-bottom: 1.5rem; border-left: 3px solid #00bfff; padding-left: 1rem;">
-      🧼 Floor cleaning robot using Arduino + ultrasonic sensors. Fully custom — no tutorials used. Built at 14.
-    </li>
-    <li data-aos="fade-right" style="margin-bottom: 1.5rem; border-left: 3px solid #00bfff; padding-left: 1rem;">
-      💬 C++ Chatbot with 45+ pre-written responses. Created at age 10.
-    </li>
-    <li data-aos="fade-left" style="margin-bottom: 1.5rem; border-left: 3px solid #00bfff; padding-left: 1rem;">
-      🏎️ Custom-designed RC car (brushed motor) hitting 40km/h. Built from scratch at 13.
-    </li>
-    <li data-aos="zoom-in" style="margin-top: 2rem; text-align: center; font-style: italic; color: #aaa;">
-      ...and honestly, so many more that I actually forgot. 😅
-    </li>
-  </ul>
-</section>
+            <br/><br/>
+            I have over 5 years of experience in programming.  I also have 5 years of hands-on experience 
+            in video editing and working on electronics/IoT-related projects.
+          </p>
+        </div>
 
+        <!-- Illustration (SVG) — decorative, not content-changing -->
+        <div class="about-illustration" aria-hidden="true">
+          <!-- simple tech SVG illustration -->
+          <svg class="hero-illustration" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00bfff"/><stop offset="1" stop-color="#6a8dff"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="600" height="400" rx="18" fill="rgba(255,255,255,0.02)"/>
+            <g transform="translate(60,60)">
+              <rect x="0" y="0" width="220" height="140" rx="10" fill="url(#g1)" opacity="0.09"/>
+              <rect x="14" y="18" width="192" height="104" rx="8" fill="rgba(255,255,255,0.02)"/>
+              <g fill="#bfefff" opacity="0.9">
+                <circle cx="36" cy="38" r="6"/>
+                <circle cx="56" cy="38" r="4"/>
+                <rect x="36" y="60" width="120" height="8" rx="4"/>
+                <rect x="36" y="78" width="80" height="8" rx="4"/>
+              </g>
+              <g transform="translate(260,10)" fill="#bfefff" opacity="0.85">
+                <rect x="0" y="0" width="120" height="120" rx="8"/>
+                <circle cx="60" cy="60" r="22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
+                <rect x="8" y="8" width="40" height="8" rx="4"/>
+                <rect x="8" y="26" width="72" height="8" rx="4"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
 
+    <!-- COMPANIES -->
+    <section id="companies" data-aos="fade-up">
+      <div class="container">
+        <h2>Companies</h2>
+        <div class="companies-grid">
+          <div class="startup-card" data-aos="fade-right">
+            <h3>Fuoco Automobiles</h3>
+            <p>Building the future of Ebikes.</p>
+            <p>
+              <a href="https://x.com/FuocoAutomobile" target="_blank">Twitter (X)</a> | 
+              <a href="https://instagram.com/FuocoAutomobiles" target="_blank">Instagram</a>
+            </p>
+          </div>
 
+          <div class="startup-card" data-aos="fade-left">
+            <h3>Pulsewave Software</h3>
+            <p>Software Solutions for problems that don't exist anyway.</p>
+            <p>
+              <a href="https://x.com/PulsewaveSoft" target="_blank">Twitter (X)</a> | 
+              <a href="https://instagram.com/PulsewaveSoft" target="_blank">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- CERTIFICATES -->
+    <section id="certificates" data-aos="zoom-in">
+      <div class="container">
+        <h2>Certificates</h2>
+        <div class="certificates">
+          <a href="https://www.testdome.com/certificates/3041e5b5d49847639b879625dc055ae9" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
+            <span class="testdome-certificate-name">DheerajKumar</span>
+            <span class="testdome-certificate-test-name">Executive Officer</span>
+            <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
+          </a>
+          <a href="https://www.testdome.com/certificates/ba54a4c6ca7b4d3f8226b02dfc77be69" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
+            <span class="testdome-certificate-name">DheerajKumar</span>
+            <span class="testdome-certificate-test-name">Leadership</span>
+            <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <!-- PROJECTS -->
+    <section id="projects" data-aos="fade-up">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="startup-card" data-aos="fade-right">
+            <h3>SciCalX</h3>
+            <p>An unique scientific application software that's useful for people working in science and related fields.</p>
+            <p><a href="https://github.com/ProCoder1199X/SciCalX" target="_blank">GitHub Repo</a></p>
+          </div>
 
+          <div class="startup-card" data-aos="fade-left">
+            <h3>Congming-AI</h3>
+            <p>An experimental, modular, symbolic multi-agent artificial intelligence framework. Designed for simulating cognitive processes and self-improvement.</p>
+            <p><a href="https://github.com/ProCoder1199x/Congming-AI" target="_blank">GitHub Repo</a></p>
+          </div>
 
+          <div class="startup-card" data-aos="fade-right">
+            <h3>ChaoticEntropy</h3>
+            <p>A computer entropy generator that blends human unpredictability, math chaos, and real-world randomness to generate near quantum-level entropy — without quantum hardware.</p>
+            <p><a href="https://github.com/ProCoder1199X/ChaoticEntropy" target="_blank">GitHub Repo</a></p>
+          </div>
+        </div>
 
+        <p class="section-note">Just a few. There are more.</p>
+      </div>
+    </section>
 
+    <!-- OTHER PROJECTS -->
+    <section id="other-projects" data-aos="fade-up">
+      <div class="container">
+        <h2>Other Projects</h2>
+        <ul class="other-list">
+          <li data-aos="fade-right" style="margin-bottom: 1.5rem;">
+            ⚡ Custom-built eBike — 24V, 250W motor, 243Wh battery. Built entirely at age 14.
+          </li>
+          <li data-aos="fade-left" style="margin-bottom: 1.5rem;">
+            🧼 Floor cleaning robot using Arduino + ultrasonic sensors. Fully custom — no tutorials used. Built at 14.
+          </li>
+          <li data-aos="fade-right" style="margin-bottom: 1.5rem;">
+            💬 C++ Chatbot with 45+ pre-written responses. Created at age 10.
+          </li>
+          <li data-aos="fade-left" style="margin-bottom: 1.5rem;">
+            🏎️ Custom-designed RC car (brushed motor) hitting 40km/h. Built from scratch at 13.
+          </li>
+          <li data-aos="zoom-in" style="margin-top:2rem; text-align:center; font-style:italic; color:#aaa;">
+            ...and honestly, so many more that I actually forgot. 😅
+          </li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- CONTACT -->
+    <section id="contact" data-aos="fade-up">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>Feel free to connect with me on social platforms:</p>
+        <div class="social-icons">
+          <a href="mailto:dheeraj1018279@gmail.com">Email</a>
+          <a href="https://github.com/ProCoder1199x" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://x.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://instagram.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://linkedin.com/in/DheerajKumar76x" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://youtube.com/@DheerajKumar76x" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://quora.com/profile/ProCoder1199x" target="_blank" rel="noopener noreferrer">Quora</a>
+        </div>
+      </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+        &copy; 2025 Dheeraj Kumar. All rights reserved.
+      </div>
+    </footer>
+  </main>
 
-  
-  <!-- CONTACT -->
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Feel free to connect with me on social platforms:</p>
-    <div class="social-icons">
-      <a href="mailto:dheeraj1018279@gmail.com">Email</a>
-      <a href="https://github.com/ProCoder1199x" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a href="https://x.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">X</a>
-      <a href="https://instagram.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://linkedin.com/in/DheerajKumar76x" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://youtube.com/@DheerajKumar76x" target="_blank" rel="noopener noreferrer">YouTube</a>
-      <a href="https://quora.com/profile/ProCoder1199x" target="_blank" rel="noopener noreferrer">Quora</a>
-    </div>
-  </section>
+  <!-- Scroll to top -->
+  <button id="scrollTop" aria-label="Scroll to top">↑</button>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2025 Dheeraj Kumar. All rights reserved.
-  </footer>
-
-  <!-- LIBRARIES -->
+  <!-- Libraries (kept as you used) -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- SCRIPTS -->
+  <!-- Scripts -->
   <script>
-    // Typing effect
-    new Typed('#typed', {
-      strings: [
-        "Hello, I am Dheeraj Kumar",
-        "Scroll Down. "
-      ],
-      typeSpeed: 73,
-      backSpeed: 52,
-      loop: true
-    });
+    // keep your exact typed strings
+    function initTyped(){
+      if(window.Typed){
+        try {
+          new Typed('#typed',{
+            strings:[
+              "Hello, I am Dheeraj Kumar",
+              "Scroll Down. "
+            ],
+            typeSpeed:73,
+            backSpeed:52,
+            loop:true
+          });
+        } catch(e){ console.warn('Typed init failed', e) }
+      } else {
+        setTimeout(initTyped, 120);
+      }
+    }
 
-    // AOS animation
-    AOS.init();
+    // AOS init
+    function initAOS(){
+      if(window.AOS){
+        AOS.init({ once:true, duration:700, easing:'ease-out-cubic' });
+      } else {
+        setTimeout(initAOS, 120);
+      }
+    }
 
-    // Particles.js config
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 86, density: { enable: true, value_area: 942 } },
-        color: { value: "#00bfff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.4, anim: { enable: true, speed: 0.6, opacity_min: 0.1, sync: false } },
-        size: { value: 3, random: true, anim: { enable: true, speed: 3, size_min: 0.5, sync: false } },
-        line_linked: { enable: true, distance: 140, color: "#00bfff", opacity: 0.5, width: 1 },
-        move: { enable: true, speed: 2.5, direction: "none", random: false, straight: false, bounce: false, attract: { enable: false } }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "grab" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 180, line_linked: { opacity: 0.7 } },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
+    // Particles (hero only). Adjust count for small screens.
+    function initParticles(){
+      try {
+        var count = window.innerWidth < 600 ? 36 : 86;
+        particlesJS("particles-js", {
+          particles: {
+            number: { value: count, density: { enable: true, value_area: 900 } },
+            color: { value: "#00bfff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.38, anim: { enable: true, speed: 0.6, opacity_min: 0.08, sync: false } },
+            size: { value: 3, random: true, anim: { enable: true, speed: 3, size_min: 0.4, sync: false } },
+            line_linked: { enable: true, distance: 140, color: "#00bfff", opacity: 0.48, width: 1 },
+            move: { enable: true, speed: 2.2, direction: "none", random: false, straight: false, bounce: false }
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+            modes: { grab: { distance: 180, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+          },
+          retina_detect: true
+        });
+      } catch(e){
+        console.warn('particles init err', e);
+      }
+    }
 
-    // Loader - stays visible for 4 seconds
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById('loader').style.display = 'none';
+    // TestDome CSS injection (kept)
+    (function(){
+      const link = document.createElement("link");
+      link.href = "https://www.testdome.com/content/certificates/embed.css";
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      document.head.appendChild(link);
+    })();
+
+    // Loader: keep for 3000ms, then hide and init scripts
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        var loader = document.getElementById('loader');
+        if(loader) loader.classList.add('hidden');
+
+        // init effects
+        initTyped();
+        initAOS();
+        initParticles();
       }, 3000);
-    };
+    });
 
-    // TestDome cert CSS
-    const link = document.createElement("link");
-    link.href = "https://www.testdome.com/content/certificates/embed.css";
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    document.head.appendChild(link);
+    // Scroll-to-top visibility & action
+    const scrollBtn = document.getElementById('scrollTop');
+    window.addEventListener('scroll', function(){
+      if(window.scrollY > 300) scrollBtn.style.display = 'block'; else scrollBtn.style.display = 'none';
+    });
+    scrollBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Keyboard focus visuals for accessibility
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+    });
+    document.addEventListener('mousedown', function(){ document.documentElement.classList.remove('show-focus') });
+
+    // Optional: Re-init particles on resize for responsiveness
+    let resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function(){
+        try { window.pJSDom && window.pJSDom.forEach(p=>p.particles && p.fn && p.fn.vendors && p.fn.vendors.density && p.fn.vendors.density()) } catch(e){}
+      },250);
+    });
   </script>
-
-
-
-
-
 </body>
 </html>
