@@ -3,438 +3,941 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Dheeraj Kumar</title>
-  <meta name="description" content="The official website of DheerajKumar" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <title>Dheeraj Kumar - Founder @ Quark AI | Software Developer & Hardware Engineer</title>
+  <meta name="description" content="Portfolio of Dheeraj Kumar - 15-year-old Founder of Quark AI, Software Developer, Hardware Engineer, and AI Enthusiast from Chennai, India." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 
   <style>
     :root{
-      --bg: #0f0f0f;
-      --panel: rgba(255,255,255,0.04);
-      --accent: #00bfff;
-      --accent-2: #00ffcc;
-      --accent-hot: #ff5e5e;
-      --glass-border: rgba(255,255,255,0.08);
-      --muted: #9aa3ad;
-      --maxw: 1200px;
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-elevated: #1a1a1a;
+      --accent: #3b82f6;
+      --accent-hover: #2563eb;
+      --accent-secondary: #06b6d4;
+      --text-primary: #f5f5f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --border: rgba(255,255,255,0.08);
       --radius: 12px;
+      --maxw: 1200px;
     }
 
-    /* Reset / Base */
     *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
-      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      font-family:"Inter",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
       background:var(--bg);
-      color:#fff;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.55;
+      color:var(--text-primary);
+      line-height:1.6;
       overflow-x:hidden;
     }
-    a{color:var(--accent)}
-    a:hover{color:var(--accent-hot)}
-    img{max-width:100%;display:block}
+    a{color:var(--accent);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-hover)}
+    img{max-width:100%;display:block;border-radius:var(--radius)}
 
-    /* Page container */
-    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 
-    /* Nav */
+    /* Navigation */
     .nav {
-      position:sticky; top:12px; z-index:9999;
-      display:flex; justify-content:center;
-      pointer-events:auto;
-      margin:0 auto;
+      position:sticky;top:16px;z-index:100;
+      display:flex;justify-content:center;
+      margin:0 auto 24px;
     }
     .nav-inner{
-      display:flex; gap:12px; background:rgba(6,6,8,0.45);
-      padding:8px 12px; border-radius:999px; align-items:center;
-      backdrop-filter: blur(6px); border:1px solid rgba(255,255,255,0.03);
+      display:flex;gap:8px;
+      background:rgba(20,20,20,0.8);
+      backdrop-filter:blur(12px);
+      padding:8px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      box-shadow:0 8px 32px rgba(0,0,0,0.4);
     }
-    .nav-inner a{color:#e8eef6;text-decoration:none;padding:6px 10px;font-weight:600;font-size:.95rem;border-radius:8px}
-    .nav-inner a:hover{background:rgba(255,255,255,0.02); color:var(--accent)}
-
-    /* Loader */
-    #loader{
-      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-      background:#000; color:var(--accent-2); z-index:100000; font-weight:700; letter-spacing:1.2px;
-      transition:opacity .45s ease, visibility .45s ease; user-select:none;
+    .nav-inner a{
+      color:var(--text-secondary);
+      padding:8px 16px;
+      font-weight:500;
+      font-size:0.9rem;
+      border-radius:10px;
+      transition:all .2s;
     }
-    #loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
-    #loader::after{
-      content:""; display:inline-block; width:20px; height:6px; margin-left:10px; border-radius:6px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-hot)); animation:loaderPop 1s infinite;
+    .nav-inner a:hover{
+      background:var(--surface-elevated);
+      color:var(--text-primary);
     }
-    @keyframes loaderPop{0%{transform:translateY(0)}50%{transform:translateY(-6px)}100%{transform:translateY(0)}}
 
-    /* HERO */
-    #hero{position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:48px 0 80px}
-    #hero .hero-inner{position:relative;z-index:30; width:100%; max-width:980px; padding-top:20px}
-    #hero h1{font-size:clamp(2rem,6vw,3.6rem); font-weight:800; margin-bottom:.25rem}
-    #typed{font-size:clamp(1rem,2.2vw,1.4rem); color:var(--accent); font-weight:700; letter-spacing:1.1px; text-shadow:0 0 12px rgba(0,191,255,0.12); margin-top:.6rem}
+    /* Hero Section */
+    #hero{
+      min-height:80vh;
+      display:flex;
+      align-items:center;
+      padding:80px 0;
+    }
+    .hero-content{max-width:800px}
+    .hero-title{
+      font-size:clamp(2.5rem,6vw,4rem);
+      font-weight:700;
+      margin-bottom:16px;
+      background:linear-gradient(135deg,var(--text-primary),var(--text-secondary));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero-subtitle{
+      font-size:clamp(1.1rem,2.5vw,1.5rem);
+      color:var(--accent);
+      font-weight:600;
+      margin-bottom:24px;
+    }
+    .hero-description{
+      font-size:1.1rem;
+      color:var(--text-secondary);
+      margin-bottom:32px;
+      line-height:1.7;
+    }
+    .hero-stats{
+      display:flex;
+      gap:32px;
+      flex-wrap:wrap;
+      margin-top:40px;
+    }
+    .stat{
+      display:flex;
+      flex-direction:column;
+    }
+    .stat-number{
+      font-size:2rem;
+      font-weight:700;
+      color:var(--accent);
+    }
+    .stat-label{
+      font-size:0.9rem;
+      color:var(--text-muted);
+    }
+    .hero-cta{
+      display:inline-block;
+      padding:12px 28px;
+      background:var(--accent);
+      color:#fff;
+      border-radius:10px;
+      font-weight:600;
+      margin-top:24px;
+      transition:all .2s;
+    }
+    .hero-cta:hover{
+      background:var(--accent-hover);
+      transform:translateY(-2px);
+    }
 
-    /* Particles container constrained to hero */
-    #particles-js{position:absolute; inset:0; width:100%; height:100%; z-index:10; pointer-events:none; opacity:0.95}
+    /* Section Styles */
+    section{padding:80px 0}
+    .section-header{
+      text-align:center;
+      margin-bottom:48px;
+    }
+    .section-title{
+      font-size:2rem;
+      font-weight:700;
+      margin-bottom:12px;
+      color:var(--text-primary);
+    }
+    .section-subtitle{
+      font-size:1.1rem;
+      color:var(--text-secondary);
+      max-width:600px;
+      margin:0 auto;
+    }
 
-    /* Floating decorative shapes */
-    .floating-shape{position:absolute; background:rgba(0,255,255,0.06); border:1px solid rgba(0,255,255,0.14); border-radius:50%; animation:float 12s ease-in-out infinite; z-index:20; filter:drop-shadow(0 0 6px rgba(0,191,255,0.06)); mix-blend-mode:screen}
-    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
-    .shape1{width:130px;height:130px;top:8%;left:6%}
-    .shape2{width:90px;height:90px;top:62%;left:78%;animation-delay:3s}
-    .shape3{width:66px;height:66px;top:38%;left:50%;animation-delay:5s}
+    /* Cards */
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      transition:all .3s;
+    }
+    .card:hover{
+      border-color:var(--accent);
+      transform:translateY(-4px);
+      box-shadow:0 12px 40px rgba(59,130,246,0.15);
+    }
 
-    /* Sections */
-    section{padding:56px 0; position:relative}
-    h2{font-size:1.6rem;color:var(--accent); margin-bottom:18px}
-    p.lead{max-width:820px;margin:0 auto 1.2rem auto;color:#e6e9ec;text-align:center}
+    /* Skills Grid */
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:24px;
+      margin-top:32px;
+    }
+    .skill-category h3{
+      font-size:1.2rem;
+      margin-bottom:16px;
+      color:var(--accent);
+    }
+    .skill-list{
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .skill-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:var(--text-secondary);
+    }
+    .skill-item::before{
+      content:'▹';
+      color:var(--accent);
+      font-size:1.2rem;
+    }
 
-    /* About two-column layout */
-    .about-grid{display:grid; gap:28px; align-items:center}
-    .about-text{min-width:0}
-    .about-illustration{display:flex;align-items:center;justify-content:center}
-    .hero-illustration{width:320px; max-width:45vw; opacity:.98}
+    /* Experience Timeline */
+    .timeline{
+      max-width:800px;
+      margin:0 auto;
+      position:relative;
+      padding-left:32px;
+    }
+    .timeline::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:2px;
+      background:var(--border);
+    }
+    .timeline-item{
+      margin-bottom:48px;
+      position:relative;
+    }
+    .timeline-item::before{
+      content:'';
+      position:absolute;
+      left:-37px;
+      top:4px;
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:var(--accent);
+      border:2px solid var(--bg);
+    }
+    .timeline-date{
+      font-size:0.9rem;
+      color:var(--accent);
+      font-weight:600;
+      margin-bottom:8px;
+    }
+    .timeline-title{
+      font-size:1.3rem;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+    .timeline-company{
+      color:var(--text-secondary);
+      margin-bottom:12px;
+    }
+    .timeline-description{
+      color:var(--text-secondary);
+      line-height:1.7;
+    }
 
-    /* Cards / projects / companies */
-    .startup-card{background:var(--panel); border-radius:var(--radius); border:1px solid var(--glass-border); backdrop-filter: blur(10px); padding:18px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); transition:transform .26s ease, box-shadow .26s ease}
-    .startup-card h3{margin-bottom:8px}
-    .startup-card p{margin:0 0 8px 0; color:#ddd}
+    /* Projects Grid */
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:24px;
+    }
+    .project-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:28px;
+      transition:all .3s;
+    }
+    .project-card:hover{
+      border-color:var(--accent);
+      transform:translateY(-4px);
+    }
+    .project-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      margin-bottom:16px;
+    }
+    .project-icon{
+      font-size:2rem;
+    }
+    .project-links{
+      display:flex;
+      gap:12px;
+    }
+    .project-link{
+      color:var(--text-secondary);
+      transition:color .2s;
+    }
+    .project-link:hover{color:var(--accent)}
+    .project-title{
+      font-size:1.3rem;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+    .project-description{
+      color:var(--text-secondary);
+      margin-bottom:16px;
+      line-height:1.6;
+    }
+    .project-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .tag{
+      padding:4px 12px;
+      background:rgba(59,130,246,0.1);
+      color:var(--accent);
+      border-radius:6px;
+      font-size:0.85rem;
+      font-weight:500;
+    }
 
-    .companies-grid, .projects-grid{display:grid; gap:20px}
-    .projects-grid .startup-card{padding:20px}
-    .companies-grid{grid-template-columns:1fr; margin-top:6px}
-    .projects-grid{grid-template-columns:1fr}
+    /* Hardware Projects */
+    .hardware-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:24px;
+    }
+    .hardware-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      transition:all .3s;
+    }
+    .hardware-card:hover{
+      border-color:var(--accent-secondary);
+      transform:translateY(-4px);
+    }
+    .hardware-title{
+      font-size:1.2rem;
+      font-weight:600;
+      margin-bottom:12px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+    .hardware-description{
+      color:var(--text-secondary);
+      line-height:1.6;
+    }
 
-    /* Certificates row */
-    .certificates{display:flex; flex-direction:column; gap:12px; align-items:center}
-    .certificates a{display:inline-block; padding:12px 14px; background:rgba(255,255,255,0.02); border-radius:10px; color:#efe; text-decoration:none}
+    /* Certificates */
+    .certificates-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+    }
+    .certificate-card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:24px;
+      text-align:center;
+      transition:all .3s;
+    }
+    .certificate-card:hover{
+      border-color:var(--accent);
+      transform:translateY(-4px);
+    }
+    .certificate-icon{
+      font-size:3rem;
+      margin-bottom:16px;
+    }
+    .certificate-name{
+      font-size:1.2rem;
+      font-weight:600;
+      margin-bottom:8px;
+    }
+    .certificate-issuer{
+      color:var(--text-secondary);
+      margin-bottom:16px;
+    }
+    .certificate-link{
+      display:inline-block;
+      padding:8px 20px;
+      background:var(--accent);
+      color:#fff;
+      border-radius:8px;
+      font-weight:500;
+      transition:background .2s;
+    }
+    .certificate-link:hover{
+      background:var(--accent-hover);
+      color:#fff;
+    }
 
-    /* Other projects list */
-    ul.other-list{list-style:none; max-width:820px; margin:0 auto; padding-left:0}
-    ul.other-list li{margin-bottom:14px; padding-left:12px; border-left:3px solid var(--accent); padding-right:10px; color:#eaeaea}
-
-    /* Contact */
-    .social-icons{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:12px}
-    .social-icons a{font-weight:600; padding:8px 12px; border-radius:9px; background:rgba(255,255,255,0.02); color:#eaeaea; text-decoration:none}
+    /* Contact Section */
+    #contact{
+      background:var(--surface);
+      border-top:1px solid var(--border);
+    }
+    .contact-content{
+      max-width:600px;
+      margin:0 auto;
+      text-align:center;
+    }
+    .contact-email{
+      font-size:1.5rem;
+      font-weight:600;
+      margin:24px 0;
+      word-break:break-all;
+    }
+    .social-links{
+      display:flex;
+      justify-content:center;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-top:32px;
+    }
+    .social-link{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:12px 24px;
+      background:var(--surface-elevated);
+      border:1px solid var(--border);
+      border-radius:10px;
+      font-weight:500;
+      transition:all .2s;
+    }
+    .social-link:hover{
+      background:var(--accent);
+      border-color:var(--accent);
+      color:#fff;
+      transform:translateY(-2px);
+    }
 
     /* Footer */
-    footer{padding:28px 0; text-align:center; color:var(--muted); border-top:1px solid rgba(255,255,255,0.02); margin-top:26px}
+    footer{
+      padding:32px 0;
+      text-align:center;
+      color:var(--text-muted);
+      border-top:1px solid var(--border);
+    }
+    .footer-links{display:flex;justify-content:center;gap:24px;margin-top:16px}
+    .footer-links a{color:var(--text-muted);transition:color .2s}
+    .footer-links a:hover{color:var(--accent)}
 
-    /* Scroll to top button */
-    #scrollTop{position:fixed;right:18px;bottom:20px;background:var(--accent);color:#011;border:none;padding:10px 12px;border-radius:10px;cursor:pointer;display:none;z-index:9999;box-shadow:0 8px 20px rgba(0,0,0,0.4)}
-    #scrollTop:hover{transform:translateY(-4px);}
+    /* Scroll to top */
+    #scrollTop{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      cursor:pointer;
+      display:none;
+      z-index:99;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      font-size:1.2rem;
+      transition:all .2s;
+    }
+    #scrollTop:hover{
+      transform:translateY(-4px);
+      background:var(--accent-hover);
+    }
 
-    /* Responsive breakpoints */
-    @media(min-width:900px){
-      .about-grid{grid-template-columns: 1fr 420px}
-      .companies-grid{grid-template-columns: 1fr 1fr}
-      .projects-grid{grid-template-columns: repeat(3,1fr)}
-      .startup-card{min-height:120px}
-      section{padding:80px 0}
-      .floating-shape{opacity:0.95}
-    }
-    @media(min-width:1200px){
-      .about-grid{grid-template-columns: 1fr 480px}
-      .projects-grid{grid-template-columns: repeat(3,1fr); gap:26px}
-    }
-    @media(max-width:899px){
-      .projects-grid{grid-template-columns:1fr}
-      .companies-grid{grid-template-columns:1fr}
-      .about-grid{grid-template-columns:1fr}
-      .hero-illustration{display:none}
-      .shape1{display:none}
-    }
-    @media(max-width:480px){
-      #typed{font-size:1rem}
-      .shape2,.shape3{display:none}
-      #particles-js{height:60vh;opacity:.75}
-      .nav-inner a{font-size:.88rem;padding:6px 8px}
+    /* Responsive */
+    @media(max-width:768px){
+      .nav-inner{gap:4px;padding:6px}
+      .nav-inner a{padding:6px 12px;font-size:0.85rem}
+      #hero{min-height:70vh;padding:60px 0}
+      .hero-stats{gap:24px}
+      section{padding:60px 0}
+      .timeline{padding-left:24px}
+      .projects-grid,.hardware-grid,.certificates-grid{
+        grid-template-columns:1fr;
+      }
+      .social-links{flex-direction:column;align-items:center}
     }
   </style>
 </head>
 <body>
 
-  <!-- Loader (keep original 3000ms behavior) -->
-  <div id="loader"> loading, please wait. </div>
-
-  <!-- Sticky nav -->
-  <div style="position:relative;z-index:9998;">
-    <nav class="nav container" aria-hidden="false">
+  <!-- Navigation -->
+  <div style="position:relative;z-index:100">
+    <nav class="nav container">
       <div class="nav-inner">
         <a href="#hero">Home</a>
         <a href="#about">About</a>
-        <a href="#companies">Companies</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#other-projects">Other</a>
+        <a href="#hardware">Hardware</a>
+        <a href="#certificates">Certificates</a>
         <a href="#contact">Contact</a>
       </div>
     </nav>
   </div>
 
-  <!-- HERO -->
   <main>
-    <section id="hero" aria-label="Hero">
-      <!-- Particles (constrained to hero) -->
-      <div id="particles-js" aria-hidden="true"></div>
-
-      <!-- Floating shapes -->
-      <div class="floating-shape shape1" aria-hidden="true"></div>
-      <div class="floating-shape shape2" aria-hidden="true"></div>
-      <div class="floating-shape shape3" aria-hidden="true"></div>
-
-      <div class="hero-inner container" data-aos="fade-up">
-        <h1>Dheeraj Kumar</h1>
-        <div id="typed"></div>
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">Dheeraj Kumar</h1>
+          <p class="hero-subtitle">Founder @ Quark AI | Software Developer & Hardware Engineer</p>
+          <p class="hero-description">
+            15-year-old innovator from Chennai, India, building autonomous AI systems and hardware prototypes. Passionate about self-improving intelligence, robotics, and open-source tools that accelerate progress toward AGI. Founder of Quark AI, focusing on velocity over caution.
+          </p>
+          
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-number">5+</div>
+              <div class="stat-label">Years in Programming</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">14</div>
+              <div class="stat-label">GitHub Repos</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Hardware Builds</div>
+            </div>
+            <div class="stat">
+              <div class="stat-number">4</div>
+              <div class="stat-label">Major AI Projects</div>
+            </div>
+          </div>
+          <a href="#projects" class="hero-cta">Explore My Work</a>
+        </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" data-aos="fade-up">
-      <div class="container about-grid">
-        <div class="about-text">
-          <h2>About Me</h2>
-          <p class="lead">
-            I'm Dheeraj Kumar, Programmer, researcher, more.
+    <!-- About Section -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">
+            Self-taught developer and entrepreneur since age 10. From C++ chatbots to founding Quark AI, I thrive on building things that challenge limits—without tutorials or hand-holding.
+          </p>
+        </div>
+        
+        <div class="card" style="max-width:800px;margin:0 auto">
+          <p style="color:var(--text-secondary);line-height:1.8">
+            My journey kicked off at 10 with a simple C++ chatbot, evolving into custom programming languages, secure messaging apps, and AI frameworks like Congming-AI. At Quark AI, I'm pioneering autonomous systems that self-improve and reason independently, drawing from neuro-symbolic architectures and low-resource optimizations.
+            <br><br>
+            Hardware side? I've prototyped RC cars, eBikes, cleaning robots, and even custom AI accelerators—all from scratch. Based in Chennai, India, I'm all about open collaboration, rapid iteration, and pushing AGI forward with smart guardrails, not red tape. Let's build the future.
+          </p>
+        </div>
+      </div>
+    </section>
 
-            <br/><br/>
-            I have over 5 years of experience in programming.  I also have 5 years of hands-on experience 
-            in video editing and working on electronics/IoT-related projects.
+    <!-- Skills Section -->
+    <section id="skills" style="background:var(--surface)">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle">
+            Expertise spanning AI/ML, systems programming, hardware engineering, and creative tools—honed through 14+ open-source projects.
           </p>
         </div>
 
-        <!-- Illustration (SVG) — decorative, not content-changing -->
-        <div class="about-illustration" aria-hidden="true">
-          <!-- simple tech SVG illustration -->
-          <svg class="hero-illustration" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
-            <defs>
-              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#00bfff"/><stop offset="1" stop-color="#6a8dff"/></linearGradient>
-            </defs>
-            <rect x="0" y="0" width="600" height="400" rx="18" fill="rgba(255,255,255,0.02)"/>
-            <g transform="translate(60,60)">
-              <rect x="0" y="0" width="220" height="140" rx="10" fill="url(#g1)" opacity="0.09"/>
-              <rect x="14" y="18" width="192" height="104" rx="8" fill="rgba(255,255,255,0.02)"/>
-              <g fill="#bfefff" opacity="0.9">
-                <circle cx="36" cy="38" r="6"/>
-                <circle cx="56" cy="38" r="4"/>
-                <rect x="36" y="60" width="120" height="8" rx="4"/>
-                <rect x="36" y="78" width="80" height="8" rx="4"/>
-              </g>
-              <g transform="translate(260,10)" fill="#bfefff" opacity="0.85">
-                <rect x="0" y="0" width="120" height="120" rx="8"/>
-                <circle cx="60" cy="60" r="22" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="6"/>
-                <rect x="8" y="8" width="40" height="8" rx="4"/>
-                <rect x="8" y="26" width="72" height="8" rx="4"/>
-              </g>
-            </g>
-          </svg>
+        <div class="skills-grid">
+          <div class="card skill-category">
+            <h3>Programming Languages</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Python</li>
+              <li class="skill-item">C++</li>
+              <li class="skill-item">JavaScript/TypeScript</li>
+              <li class="skill-item">HTML/CSS</li>
+              <li class="skill-item">C</li>
+            </ul>
+          </div>
+
+          <div class="card skill-category">
+            <h3>Frameworks & Libraries</h3>
+            <ul class="skill-list">
+              <li class="skill-item">PyTorch/TensorFlow</li>
+              <li class="skill-item">ONNX</li>
+              <li class="skill-item">OpenCV</li>
+              <li class="skill-item">Arduino IDE</li>
+            </ul>
+          </div>
+
+          <div class="card skill-category">
+            <h3>Hardware & Electronics</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Arduino/Raspberry Pi</li>
+              <li class="skill-item">IoT & Embedded Systems</li>
+              <li class="skill-item">Circuit Design & PCB</li>
+              <li class="skill-item">Motor Control & Robotics</li>
+              <li class="skill-item">Custom AI Hardware</li>
+            </ul>
+          </div>
+
+          <div class="card skill-category">
+            <h3>Tools & Software</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Git/GitHub</li>
+              <li class="skill-item">VS Code/Cursor IDE</li>
+              <li class="skill-item">Electron for Apps</li>
+              <li class="skill-item">AES-256 Encryption</li>
+            </ul>
+          </div>
+
+          <div class="card skill-category">
+            <h3>Specializations</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Autonomous AI & AGI</li>
+              <li class="skill-item">Multi-Agent Systems</li>
+              <li class="skill-item">Neuro-Symbolic AI</li>
+              <li class="skill-item">Low-Resource Inference</li>
+            </ul>
+          </div>
+
+          <div class="card skill-category">
+            <h3>Soft Skills</h3>
+            <ul class="skill-list">
+              <li class="skill-item">Self-Learning & Iteration</li>
+              <li class="skill-item">Project Management</li>
+              <li class="skill-item">Open-Source Collaboration</li>
+              <li class="skill-item">Entrepreneurship</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-   
-
-    <!-- CERTIFICATES -->
-    <section id="certificates" data-aos="zoom-in">
+    <!-- Experience Section -->
+    <section id="experience">
       <div class="container">
-        <h2>Certificates</h2>
-        <div class="certificates">
-          <a href="https://www.testdome.com/certificates/3041e5b5d49847639b879625dc055ae9" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
-            <span class="testdome-certificate-name">DheerajKumar</span>
-            <span class="testdome-certificate-test-name">Executive Officer</span>
-            <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
-          </a>
-          <a href="https://www.testdome.com/certificates/ba54a4c6ca7b4d3f8226b02dfc77be69" class="testdome-certificate-stamp silver" target="_blank" rel="noopener noreferrer">
-            <span class="testdome-certificate-name">DheerajKumar</span>
-            <span class="testdome-certificate-test-name">Leadership</span>
-            <span class="testdome-certificate-card-logo">TestDome<br>Certificate</span>
-          </a>
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Key milestones in my journey from hobbyist to founder.</p>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2025 - Present</div>
+            <h3 class="timeline-title">Founder & Lead Researcher</h3>
+            <div class="timeline-company">Quark AI</div>
+            <p class="timeline-description">
+              Leading development of autonomous AI systems like Congming-AI and Synapse-AI. Focused on self-improving architectures, low-end hardware inference, and AGI roadmap. Advocating for innovation without overregulation.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Age 10 - Present</div>
+            <h3 class="timeline-title">Self-Taught Developer & Engineer</h3>
+            <div class="timeline-company">Independent Projects</div>
+            <p class="timeline-description">
+              Built 14+ GitHub repos, from secure messaging (CipherChat) to entropy generators (ChaoticEntropy) and DSLs (EasiScriptX). Hands-on learning in AI, hardware, and full-stack development.
+            </p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-date">Age 13-14</div>
+            <h3 class="timeline-title">Hardware Prototyping</h3>
+            <div class="timeline-company">Personal Builds</div>
+            <p class="timeline-description">
+              Designed custom RC cars, eBikes, and autonomous cleaning robots using Arduino—pioneering embedded systems and IoT without external guidance.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects" data-aos="fade-up">
+    <!-- Projects Section -->
+    <section id="projects" style="background:var(--surface)">
       <div class="container">
-        <h2>Projects</h2>
+        <div class="section-header">
+          <h2 class="section-title">Software Projects</h2>
+          <p class="section-subtitle">Open-source tools and frameworks pushing AI, security, and efficiency.</p>
+        </div>
+
         <div class="projects-grid">
-          <div class="startup-card" data-aos="fade-right">
-            <h3>SciCalX</h3>
-            <p>An unique scientific application software that's useful for people working in science and related fields.</p>
-            <p><a href="https://github.com/ProCoder1199X/SciCalX" target="_blank">GitHub Repo</a></p>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🔬</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/SciCalX" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">SciCalX</h3>
+            <p class="project-description">
+              Advanced scientific calculator app for data analysis and computations, built with Electron for cross-platform use.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML/JS</span>
+              <span class="tag">Scientific Computing</span>
+              <span class="tag">Electron</span>
+            </div>
           </div>
 
-          <div class="startup-card" data-aos="fade-left">
-            <h3>Congming-AI</h3>
-            <p>An experimental, modular, symbolic multi-agent artificial intelligence framework. Designed for simulating cognitive processes and self-improvement.</p>
-            <p><a href="https://github.com/ProCoder1199x/Congming-AI" target="_blank">GitHub Repo</a></p>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🧠</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/Congming-AI" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Congming-AI</h3>
+            <p class="project-description">
+              Modular neuro-symbolic multi-agent AI framework for cognitive simulation and self-improvement. Core to Quark AI's AGI research.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">AI/ML</span>
+              <span class="tag">Multi-Agent</span>
+            </div>
           </div>
 
-          <div class="startup-card" data-aos="fade-right">
-            <h3>ChaoticEntropy</h3>
-            <p>A computer entropy generator that blends human unpredictability, math chaos, and real-world randomness to generate near quantum-level entropy — without quantum hardware.</p>
-            <p><a href="https://github.com/ProCoder1199X/ChaoticEntropy" target="_blank">GitHub Repo</a></p>
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🎲</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/ChaoticEntropy" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">ChaoticEntropy</h3>
+            <p class="project-description">
+              High-entropy generator blending chaos math and real-world randomness for secure, quantum-like outputs without specialized hardware.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C</span>
+              <span class="tag">Cryptography</span>
+              <span class="tag">Randomness</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">⚡</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/EasiScriptX" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">EasiScriptX</h3>
+            <p class="project-description">
+              High-performance DSL for AI/ML workflows with tensor ops, distributed training, and ONNX support. MIT-licensed for Quark AI.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">AI/ML DSL</span>
+              <span class="tag">ONNX</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🔒</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/CipherChat" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">CipherChat</h3>
+            <p class="project-description">
+              End-to-end encrypted, serverless messaging app with AES-256 multi-layer symmetric encryption. Decentralized and privacy-first.
+            </p>
+            <div class="project-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Encryption</span>
+              <span class="tag">P2P</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🚀</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/NanoAccel" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">NanoAccel</h3>
+            <p class="project-description">
+              Python library for efficient LLM inference on low-end hardware, with CPU optimizations for edge AI deployment.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">LLM Inference</span>
+              <span class="tag">Optimization</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">🛡️</div>
+              <div class="project-links">
+                <a href="https://github.com/ProCoder1199X/ethical-web-load-tester" target="_blank" class="project-link" title="GitHub">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+              </div>
+            </div>
+            <h3 class="project-title">Ethical Web Load Tester</h3>
+            <p class="project-description">
+              Secure load testing tool with anonymity features (Tor, proxies) for ethical security research and simulations.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Security</span>
+              <span class="tag">Anonymity</span>
+            </div>
           </div>
         </div>
-
-        <p class="section-note">Just a few. There are more.</p>
       </div>
     </section>
 
-    <!-- OTHER PROJECTS -->
-    <section id="other-projects" data-aos="fade-up">
+    <!-- Hardware Section -->
+    <section id="hardware">
       <div class="container">
-        <h2>Other Projects</h2>
-        <ul class="other-list">
-          <li data-aos="fade-right" style="margin-bottom: 1.5rem;">
-            ⚡ Custom-built eBike — 24V, 250W motor, 243Wh battery. Built entirely at age 14.
-          </li>
-          <li data-aos="fade-left" style="margin-bottom: 1.5rem;">
-            🧼 Floor cleaning robot using Arduino + ultrasonic sensors. Fully custom — no tutorials used. Built at 14.
-          </li>
-          <li data-aos="fade-right" style="margin-bottom: 1.5rem;">
-            💬 C++ Chatbot with 45+ pre-written responses. Created at age 10.
-          </li>
-          <li data-aos="fade-left" style="margin-bottom: 1.5rem;">
-            🏎️ Custom-designed RC car (brushed motor) hitting 40km/h. Built from scratch at 13.
-          </li>
-          <li data-aos="zoom-in" style="margin-top:2rem; text-align:center; font-style:italic; color:#aaa;">
-            ...and honestly, so many more that I actually forgot. 😅
-          </li>
-        </ul>
-      </div>
-    </section>
+        <div class="section-header">
+          <h2 class="section-title">Hardware Projects</h2>
+          <p class="section-subtitle">From scratch builds in robotics and custom AI accelerators.</p>
+        </div>
 
-    <!-- CONTACT -->
-    <section id="contact" data-aos="fade-up">
-      <div class="container">
-        <h2>Contact</h2>
-        <p>Feel free to connect with me on social platforms:</p>
-        <div class="social-icons">
-          <a href="mailto:dheeraj1018279@gmail.com">Email</a>
-          <a href="https://github.com/ProCoder1199x" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://x.com/DheerajKumar76x" target="_blank" rel="noopener noreferrer">X</a>
-        <a href="https://linkedin.com/in/DheerajKumar76x" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a href="https://youtube.com/@DheerajKumar76x" target="_blank" rel="noopener noreferrer">YouTube</a>
-     
+        <div class="hardware-grid">
+          <div class="hardware-card">
+            <h4 class="hardware-title">🤖 Autonomous Floor-Cleaning Robot</h4>
+            <p class="hardware-description">
+              Arduino-based robot with sensor fusion for navigation and obstacle avoidance. Self-built at age 14, no kits used.
+            </p>
+          </div>
+
+          <div class="hardware-card">
+            <h4 class="hardware-title">🚲 Custom eBike Controller</h4>
+            <p class="hardware-description">
+              Full eBike prototype with motor drivers, battery management, and IoT telemetry. Designed for efficiency and range.
+            </p>
+          </div>
+
+          <div class="hardware-card">
+            <h4 class="hardware-title">🏎️ RC Car with AI Vision</h4>
+            <p class="hardware-description">
+              High-speed RC car upgraded with OpenCV for line-following and object detection. Integrates hardware-software seamlessly.
+            </p>
+          </div>
+
+          <div class="hardware-card">
+            <h4 class="hardware-title">🧠 Cortex Intelligence Units</h4>
+            <p class="hardware-description">
+              Early-stage custom hardware for Synapse-AI acceleration. Focus on low-power, edge-compatible neural processing.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- Certificates Section -->
+    <section id="certificates" style="background:var(--surface)">
       <div class="container">
-        &copy; 2025 Dheeraj Kumar. All rights reserved.
+        <div class="section-header">
+          <h2 class="section-title">Achievements & Certifications</h2>
+          <p class="section-subtitle">Milestones in learning and contributions (ongoing journey).</p>
+        </div>
+
+        <div class="certificates-grid">
+          <div class="certificate-card">
+            <div class="certificate-icon">🌟</div>
+            <h4 class="certificate-name">Quark AI Launch</h4>
+            <p class="certificate-issuer">Founder Milestone, 2025</p>
+            <a href="https://quarkai.vercel.app" class="certificate-link" target="_blank">View Site</a>
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">📚</div>
+            <h4 class="certificate-name">Self-Taught Mastery</h4>
+            <p class="certificate-issuer">5+ Years Independent Learning</p>
+            <a href="https://github.com/ProCoder1199X" class="certificate-link" target="_blank">GitHub Profile</a>
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">🚀</div>
+            <h4 class="certificate-name">EasiScriptX v1.0 Release</h4>
+            <p class="certificate-issuer">MIT Open-Source, 2025</p>
+            <a href="https://github.com/ProCoder1199X/EasiScriptX" class="certificate-link" target="_blank">Repo</a>
+          </div>
+
+          <div class="certificate-card">
+            <div class="certificate-icon">🔒</div>
+            <h4 class="certificate-name">Ethical Hacking Research</h4>
+            <p class="certificate-issuer">Load Tester Tool, 2025</p>
+            <a href="https://github.com/ProCoder1199X/ethical-web-load-tester" class="certificate-link" target="_blank">Repo</a>
+          </div>
+        </div>
       </div>
-    </footer>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle">Open to collaborations on AI, hardware, or AGI research. Let's accelerate intelligence together.</p>
+        </div>
+        
+        <div class="contact-content">
+          <p class="contact-email">dheeraj293949@gmail.com</p>
+          
+          <div class="social-links">
+            <a href="https://github.com/ProCoder1199X" class="social-link" target="_blank">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+            <a href="https://x.com/DheerajKumar76x" class="social-link" target="_blank">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              X (Twitter)
+            </a>
+            <a href="https://quarkai.vercel.app" class="social-link" target="_blank">
+              🧬 Quark AI
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <!-- Scroll to top -->
-  <button id="scrollTop" aria-label="Scroll to top">↑</button>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Dheeraj Kumar. Built with passion in Chennai, India. <a href="https://quarkai.vercel.app">Quark AI</a></p>
+      <div class="footer-links">
+        <a href="https://github.com/ProCoder1199X">GitHub</a>
+        <a href="https://x.com/DheerajKumar76x">X</a>
+        <a href="mailto:dheeraj293949@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
 
-  <!-- Libraries (kept as you used) -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <button id="scrollTop" onclick="scrollToTop()">↑</button>
 
-  <!-- Scripts -->
   <script>
-    // keep your exact typed strings
-    function initTyped(){
-      if(window.Typed){
-        try {
-          new Typed('#typed',{
-            strings:[
-              "Hello, I am Dheeraj Kumar",
-              "Scroll Down. "
-            ],
-            typeSpeed:73,
-            backSpeed:52,
-            loop:true
-          });
-        } catch(e){ console.warn('Typed init failed', e) }
-      } else {
-        setTimeout(initTyped, 120);
-      }
+    // Smooth scroll to top
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // AOS init
-    function initAOS(){
-      if(window.AOS){
-        AOS.init({ once:true, duration:700, easing:'ease-out-cubic' });
-      } else {
-        setTimeout(initAOS, 120);
-      }
-    }
-
-    // Particles (hero only). Adjust count for small screens.
-    function initParticles(){
-      try {
-        var count = window.innerWidth < 600 ? 36 : 86;
-        particlesJS("particles-js", {
-          particles: {
-            number: { value: count, density: { enable: true, value_area: 900 } },
-            color: { value: "#00bfff" },
-            shape: { type: "circle" },
-            opacity: { value: 0.38, anim: { enable: true, speed: 0.6, opacity_min: 0.08, sync: false } },
-            size: { value: 3, random: true, anim: { enable: true, speed: 3, size_min: 0.4, sync: false } },
-            line_linked: { enable: true, distance: 140, color: "#00bfff", opacity: 0.48, width: 1 },
-            move: { enable: true, speed: 2.2, direction: "none", random: false, straight: false, bounce: false }
-          },
-          interactivity: {
-            detect_on: "canvas",
-            events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
-            modes: { grab: { distance: 180, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
-          },
-          retina_detect: true
-        });
-      } catch(e){
-        console.warn('particles init err', e);
-      }
-    }
-
-    // TestDome CSS injection (kept)
-    (function(){
-      const link = document.createElement("link");
-      link.href = "https://www.testdome.com/content/certificates/embed.css";
-      link.type = "text/css";
-      link.rel = "stylesheet";
-      document.head.appendChild(link);
-    })();
-
-    // Loader: keep for 3000ms, then hide and init scripts
-    window.addEventListener('load', function(){
-      setTimeout(function(){
-        var loader = document.getElementById('loader');
-        if(loader) loader.classList.add('hidden');
-
-        // init effects
-        initTyped();
-        initAOS();
-        initParticles();
-      }, 3000);
-    });
-
-    // Scroll-to-top visibility & action
-    const scrollBtn = document.getElementById('scrollTop');
-    window.addEventListener('scroll', function(){
-      if(window.scrollY > 300) scrollBtn.style.display = 'block'; else scrollBtn.style.display = 'none';
-    });
-    scrollBtn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
-
-    // Keyboard focus visuals for accessibility
-    document.addEventListener('keydown', function(e){
-      if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
-    });
-    document.addEventListener('mousedown', function(){ document.documentElement.classList.remove('show-focus') });
-
-    // Optional: Re-init particles on resize for responsiveness
-    let resizeTimer;
-    window.addEventListener('resize', function(){
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function(){
-        try { window.pJSDom && window.pJSDom.forEach(p=>p.particles && p.fn && p.fn.vendors && p.fn.vendors.density && p.fn.vendors.density()) } catch(e){}
-      },250);
-    });
+    // Show/hide scroll button
+    window.onscroll = () => {
+      document.getElementById('scrollTop').style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? 'block' : 'none';
+    };
   </script>
+
 </body>
 </html>
